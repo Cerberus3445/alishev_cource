@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New person</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/people}" th:object="${person}">
+    <label for="name">Enter name</label>
+    <input type="text" th:field="*{name}" id="name"> <!--где звездочкой указываем название поля у объекта person, в которое вставим значение-->
+    <p style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</p> <!-- если есть ошибки в поле name, то показываем ошибки для поля name-->
+    <br>
+    <label for="surname">Enter surname</label>
+    <input type="text" th:field="*{surname}" id="surname">
+    <p style="color:red" th:if="${#fields.hasErrors('surname')}" th:erros="*{surname}">Surname error</p>
+    <br>
+    <label for="age">Enter age</label>
+    <input type="text" th:field="*{age}" id="age">
+    <p style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</p>
+    <br>
+    <label for="email">Enter email</label>
+    <input type="text" th:field="*{email}" id="email">
+    <p style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</p>
+    <br>
+    <label for="address">Enter address</label>
+    <input type="text" th:field="*{address}" id="address">
+    <p style="color:red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address error</p>
+    <br>
+    <input type="submit" value="Create">
+</form>
+</body>
+</html>
